@@ -49,10 +49,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(755,root,root,755)
 %doc data docs/*
-%attr(755,root,root) $(TSTOOLS_DIR)/*
-%attr(755,root,root) $(OBJ_TSTOOL)/*
-%attr(755,root,root) $(LIB_TSTOOL)/*
-%attr(755,root,root) $(BIN_TSTOOL)/*
+%attr(755,root,root) ${TSTOOLS_DIR}/*
+%attr(755,root,root) ${OBJ_TSTOOL}/*
+%attr(755,root,root) ${LIB_TSTOOL}/*
+%attr(755,root,root) ${BIN_TSTOOL}/*
 
 %define date	%(echo `LC_ALL="C" date +"%a %b %d %Y"`)
 %changelog
