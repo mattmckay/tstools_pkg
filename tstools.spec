@@ -1,11 +1,9 @@
 Summary:	Command line tools for working with MPEG streams
 Name:		tstools
-Version:	1.11
+Version:	1.12
 Release:	1.1
 License:	MPL v1.1
 Group:		Applications/Networking
-Source0:	http://tstools.googlecode.com/files/%{name}-1_11.tgz
-# Source0-md5:	2650a09f828b19bb22829a7828f13cde
 URL:		http://tstools.berlios.de/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -19,26 +17,22 @@ The tools are focussed on:
 
 %prep
 %setup -q
-#sed -e 's/libtstools.a/libtstools.so/' -i Makefile
-#sed -e 's/$(LIB): $(LIB)($(OBJS))/$(LIB): $(OBJS)\n	$(CC) $(CFLAGS) -shared $(OBJS) -o $@/' -i Makefile
 
 %build
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-OPT_DIR=${RPM_BUILD_ROOT}/opt
-TSTOOLS_DIR=${OPT_DIR}/tstools
 
-mkdir -p ${TSTOOLS_DIR}
-OBJ_TSTOOL=${TSTOOLS_DIR}/obj
-LIB_TSTOOL=${TSTOOLS_DIR}/lib
-BIN_TSTOOL=${TSTOOLS_DIR}/bin
-mkdir -p $OBJ_TSTOOL $LIB_TSTOOL $BIN_TSTOOL
+OBJ_TSTOOL=${RPM_BUILD_ROOT}/opt/tstools/obj
+LIB_TSTOOL=${RPM_BUILD_ROOT}/opt/tstools/lib
+BIN_TSTOOL=${RPM_BUILD_ROOT}/opt/tstools/bin
 
-cp -a obj/* $OBJ_TSTOOL
-cp -a lib/* $LIB_TSTOOL
-cp -a bin/* $BIN_TSTOOL
+mkdir -p $TSTOOLS_DIR $OBJ_TSTOOL $LIB_TSTOOL $BIN_TSTOOL
+
+cp -a obj/* ${OBJ_TSTOOL}/.
+cp -a lib/* ${LIB_TSTOOL}/.
+cp -a bin/* ${BIN_TSTOOL}/.
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -49,10 +43,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(755,root,root,755)
 %doc data docs/*
-%attr(755,root,root) ${TSTOOLS_DIR}/*
-%attr(755,root,root) ${OBJ_TSTOOL}/*
-%attr(755,root,root) ${LIB_TSTOOL}/*
-%attr(755,root,root) ${BIN_TSTOOL}/*
+%attr(755,root,root) /opt/tstools/*
+
 
 %define date	%(echo `LC_ALL="C" date +"%a %b %d %Y"`)
 %changelog
