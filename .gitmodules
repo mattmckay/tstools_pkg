@@ -1,0 +1,3 @@
+[submodule "tstools"]
+	path = tstools
+	url = https://code.google.com/p/tstools/
