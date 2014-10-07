@@ -4,6 +4,7 @@ Version:	1.12
 Release:	1.1
 License:	MPL v1.1
 Group:		Applications/Networking
+Source0:	http://tstools.googlecode.com/files/%{name}-1_11.tgz
 URL:		http://tstools.berlios.de/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

@@ -8,11 +8,14 @@ rm -r ~/rpmbuild/
 mkdir -p ~/rpmbuild/SOURCES/
 mkdir -p ~/rpmbuild/SPECS/
 
+
 # Copy the specfile into the rpmbuild/ directory
 cp tstools.spec ~/rpmbuild/SPECS/
 
-# Copy the README into the src dir
-cp *.tgz ~/rpmbuild/SOURCES/
+# Tar the source files into the into the src dir
+
+tar cvzf ~/rpmbuild/SOURCES/tstools.tgz tstools/*
+
 
 # Build the rpms
 rpmbuild -ba ~/rpmbuild/SPECS/tstools.spec
