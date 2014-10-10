@@ -4,8 +4,8 @@ Version:	1.12
 Release:	1.0
 License:	MPL v1.1
 Group:		Applications/Networking
-Source0:	tstools-77f94dff7e4f.tar.gz
-URL:		https://tstools.googlecode.com/archive/77f94dff7e4f616dfab40ea98f10491b5a2f33e6.tar.gz
+Source0:	tstools.tgz
+URL:		https://code.google.com/p/tstools/source/detail?r=77f94dff7e4f616dfab40ea98f10491b5a2f33e6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
