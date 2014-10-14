@@ -13,7 +13,10 @@ mkdir -p ~/rpmbuild/SPECS/
 cp tstools.spec ~/rpmbuild/SPECS/
 
 # tar source files into the src dir
-tar cvzf ~/rpmbuild/SOURCES/tstools.tgz tstools/*
+mkdir tstools-1.12
+cp tstools/* tstools-1.12/.
+tar cvzf ~/rpmbuild/SOURCES/tstools-1.12.tgz tstools-1.12
+rm -r tstools-1.12
 
 # Build the rpms
 rpmbuild -ba ~/rpmbuild/SPECS/tstools.spec
